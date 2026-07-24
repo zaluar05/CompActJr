@@ -1,0 +1,304 @@
+/* IMPORTAÇÃO BASE DO TAILWIND V4 */
+@reference "../../app/globals.css";
+
+/* =========================================
+   SEÇÃO HERO (TOPO DA PÁGINA)
+   ========================================= */
+
+.ps-hero {
+    @apply relative w-full min-h-screen flex items-center justify-center pt-28 pb-20 overflow-hidden;
+}
+
+.ps-hero-glow-purple {
+    @apply absolute top-[-20%] left-[-15%] w-[60vw] h-[60vw] rounded-full pointer-events-none;
+    background: radial-gradient(circle, #9628a5 5%, transparent 65%);
+    opacity: 0.35;
+    filter: blur(100px);
+    z-index: 0;
+}
+
+.ps-hero-glow-blue {
+    @apply absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full pointer-events-none;
+    background: radial-gradient(circle, #00a7db 5%, transparent 65%);
+    opacity: 0.25;
+    filter: blur(110px);
+    z-index: 0;
+}
+
+.ps-hero-content {
+    @apply container mx-auto px-6 max-w-5xl relative z-10 text-center;
+}
+
+.ps-kicker {
+    @apply inline-block font-principal text-xs md:text-sm uppercase tracking-[4px] text-secundaria border border-secundaria/30 bg-secundaria/10 px-4 py-2 mb-6;
+}
+
+.ps-hero-title {
+    @apply font-titulo text-4xl md:text-5xl lg:text-6xl font-black uppercase text-branco leading-[1.05] tracking-tight mb-6;
+}
+
+.ps-hero-title span {
+    @apply text-secundaria;
+}
+
+.ps-hero-subtitle {
+    @apply font-principal text-base md:text-lg text-branco/70 leading-relaxed max-w-2xl mx-auto mb-10;
+}
+
+/* =========================================
+   CARDS DE CONTAGEM REGRESSIVA
+   ========================================= */
+
+.ps-countdown-wrapper {
+    @apply relative w-full py-20 z-10;
+}
+
+.ps-section-header {
+    @apply container mx-auto px-6 max-w-7xl mb-12;
+}
+
+.ps-section-kicker {
+    @apply font-principal text-xs uppercase tracking-[4px] text-secundaria mb-3 block;
+}
+
+.ps-section-title {
+    @apply font-titulo text-3xl md:text-4xl font-black uppercase text-branco leading-tight;
+}
+
+.ps-section-title span {
+    @apply text-secundaria;
+}
+
+.ps-countdown-grid {
+    @apply container mx-auto px-6 max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-8;
+}
+
+/* CARD DE CONTAGEM REGRESSIVA */
+.ps-countdown-card {
+    @apply relative bg-branco/5 backdrop-blur-xl border border-branco/10 p-8 md:p-10 rounded-sm shadow-2xl overflow-hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ps-countdown-card:hover {
+    @apply border-secundaria/30;
+    box-shadow: 0 25px 50px -12px rgba(0, 167, 219, 0.1);
+}
+
+.ps-countdown-card-glow {
+    @apply absolute top-0 right-0 w-48 h-48 rounded-full pointer-events-none;
+    opacity: 0.08;
+    filter: blur(60px);
+    transform: translate(30%, -30%);
+}
+
+.ps-countdown-card-label {
+    @apply font-principal text-xs uppercase tracking-[4px] text-branco/50 mb-2;
+}
+
+.ps-countdown-card-title {
+    @apply font-titulo text-xl md:text-2xl font-bold text-branco mb-6 uppercase;
+}
+
+.ps-countdown-card-title.active {
+    @apply text-secundaria;
+}
+
+.ps-timer-grid {
+    @apply flex gap-4 md:gap-6;
+}
+
+.ps-timer-unit {
+    @apply flex flex-col items-center gap-1;
+}
+
+.ps-timer-number {
+    @apply font-titulo text-4xl md:text-5xl font-black text-branco tabular-nums leading-none;
+    text-shadow: 0 0 30px rgba(0, 167, 219, 0.3);
+}
+
+.ps-timer-number.highlight {
+    @apply text-secundaria;
+}
+
+.ps-timer-label {
+    @apply font-principal text-[10px] uppercase tracking-[2px] text-branco/40;
+}
+
+.ps-timer-separator {
+    @apply font-titulo text-3xl md:text-4xl font-black text-branco/30 self-start mt-1 leading-none;
+}
+
+.ps-countdown-status {
+    @apply mt-6 flex items-center gap-2;
+}
+
+.ps-status-dot {
+    @apply w-2 h-2 rounded-full;
+    animation: ps-pulse 2s infinite;
+}
+
+.ps-status-dot.open {
+    @apply bg-green-400;
+}
+
+.ps-status-dot.waiting {
+    @apply bg-yellow-400;
+}
+
+.ps-status-dot.closed {
+    @apply bg-red-400;
+}
+
+@keyframes ps-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.ps-status-text {
+    @apply font-principal text-xs uppercase tracking-[2px] text-branco/60;
+}
+
+/* =========================================
+   SEÇÃO DE INSCRIÇÃO / FORMULÁRIO
+   ========================================= */
+
+.ps-inscricao-section {
+    @apply relative w-full py-20 z-10;
+}
+
+.ps-inscricao-container {
+    @apply container mx-auto px-6 max-w-7xl;
+}
+
+.ps-inscricao-card {
+    @apply relative bg-branco/5 backdrop-blur-xl border border-secundaria/20 p-8 md:p-12 shadow-2xl overflow-hidden;
+    background: linear-gradient(135deg, rgba(0, 167, 219, 0.05) 0%, rgba(150, 40, 165, 0.05) 100%);
+}
+
+.ps-inscricao-inner {
+    @apply grid grid-cols-1 lg:grid-cols-2 gap-12 items-center;
+}
+
+.ps-inscricao-text {}
+
+.ps-inscricao-title {
+    @apply font-titulo text-3xl md:text-4xl font-black uppercase text-branco leading-tight mb-4;
+}
+
+.ps-inscricao-title span {
+    @apply text-secundaria;
+}
+
+.ps-inscricao-desc {
+    @apply font-principal text-sm md:text-base text-branco/70 leading-relaxed mb-8;
+}
+
+.ps-inscricao-btn {
+    @apply inline-flex items-center gap-3 font-titulo bg-secundaria text-branco px-8 md:px-10 py-4 md:py-5 text-[12px] md:text-[14px] uppercase font-black tracking-[2px] transition-all duration-300 cursor-pointer shadow-lg shadow-secundaria/20;
+}
+
+.ps-inscricao-btn:hover {
+    @apply bg-branco text-secundaria shadow-xl shadow-secundaria/30 scale-105;
+}
+
+.ps-inscricao-btn.disabled {
+    @apply opacity-40 cursor-not-allowed pointer-events-none;
+}
+
+/* Iframe do Pipefy */
+.ps-pipefy-wrapper {
+    @apply w-full rounded-sm overflow-hidden border border-branco/10;
+    min-height: 420px;
+}
+
+.ps-pipefy-wrapper iframe {
+    @apply w-full;
+    min-height: 420px;
+    border: none;
+}
+
+/* =========================================
+   SEÇÃO EDITAL
+   ========================================= */
+
+.ps-edital-section {
+    @apply relative w-full py-20 z-10;
+}
+
+.ps-edital-container {
+    @apply container mx-auto px-6 max-w-7xl;
+}
+
+.ps-edital-grid {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-6 mt-12;
+}
+
+.ps-edital-card {
+    @apply relative bg-branco/5 backdrop-blur-xl border border-branco/10 p-8 rounded-sm shadow-xl overflow-hidden transition-all duration-300;
+}
+
+.ps-edital-card:hover {
+    @apply border-secundaria/40 bg-branco/8;
+    transform: translateY(-4px);
+}
+
+.ps-edital-icon {
+    @apply w-12 h-12 rounded-full border border-secundaria/30 bg-secundaria/10 flex items-center justify-center mb-5;
+}
+
+.ps-edital-icon svg {
+    @apply w-6 h-6 text-secundaria;
+}
+
+.ps-edital-card-title {
+    @apply font-titulo text-lg font-bold text-branco uppercase mb-2;
+}
+
+.ps-edital-card-text {
+    @apply font-principal text-sm text-branco/60 leading-relaxed;
+}
+
+/* BOTÃO DO EDITAL */
+.ps-edital-btn {
+    @apply mt-10 inline-flex items-center gap-3 font-titulo border border-branco/20 text-branco px-8 py-4 text-[11px] uppercase font-bold tracking-[2px] transition-all duration-300 cursor-pointer;
+}
+
+.ps-edital-btn:hover {
+    @apply border-secundaria text-secundaria bg-secundaria/10;
+}
+
+/* =========================================
+   SEÇÃO CONTATO GP
+   ========================================= */
+
+.ps-contact-section {
+    @apply relative w-full py-20 z-10;
+}
+
+.ps-contact-container {
+    @apply container mx-auto px-6 max-w-5xl text-center;
+}
+
+.ps-contact-card {
+    @apply bg-branco/5 backdrop-blur-xl border border-branco/10 p-10 md:p-16 rounded-sm shadow-2xl;
+}
+
+.ps-contact-title {
+    @apply font-titulo text-2xl md:text-3xl font-black uppercase text-branco mb-4;
+}
+
+.ps-contact-title span {
+    @apply text-secundaria;
+}
+
+.ps-contact-desc {
+    @apply font-principal text-sm md:text-base text-branco/60 leading-relaxed mb-8;
+}
+
+.ps-contact-email-btn {
+    @apply inline-flex items-center gap-3 font-titulo border border-secundaria text-secundaria px-8 md:px-12 py-4 text-[12px] uppercase font-bold tracking-[2px] transition-all duration-300 cursor-pointer;
+}
+
+.ps-contact-email-btn:hover {
+    @apply bg-secundaria text-branco shadow-lg shadow-secundaria/25 scale-105;
+}

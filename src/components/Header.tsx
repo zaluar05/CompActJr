@@ -19,6 +19,9 @@ export default function Header() {
     // 'isDark': Estado inicial para o sistema de mudança de temas (Dark/Light mode)
     const [isDark, setIsDark] = useState(true)
 
+    // Lê a variável de ambiente para controlar exibição do link do PS
+    const psAtivo = process.env.NEXT_PUBLIC_ATIVAR_PAGINA_PS === 'true'
+
     // EFEITOS COLATERAIS (Lógica de Tela)
     useEffect(() => {
         // Monitora a posição do Scroll da janela. Se passar de 20px, ativa o background escuro.
@@ -67,6 +70,12 @@ export default function Header() {
                             <Link href="#sobre" className="nav-link ">Quem Somos</Link>
                             {/*<Link href="#blog" className="nav-link ">Blog</Link>*/}
                             <Link href="#portfolio" className="nav-link ">Portfólio</Link>
+                            {/* Link do PS — exibido somente quando NEXT_PUBLIC_ATIVAR_PAGINA_PS=true */}
+                            {psAtivo && (
+                                <Link href="#processo-seletivo" id="nav-processo-seletivo">
+                                    <button className="btn-contato">PS 2026/2</button>
+                                </Link>
+                            )}
                         </nav>
 
                         {/* Divisor vertical sutil ('border-l') separando os links dos botões de ação */}
@@ -135,6 +144,17 @@ export default function Header() {
                     <Link href="#servicos" onClick={() => setMenuAberto(false)} className="nav-link nav-link-mobile">Serviços</Link>
                     <Link href="#sobre" onClick={() => setMenuAberto(false)} className="nav-link nav-link-mobile">Quem Somos</Link>
                     <Link href="#portfolio" onClick={() => setMenuAberto(false)} className="nav-link nav-link-mobile">Portfólio</Link>
+                    {/* Link do PS no mobile — exibido somente quando NEXT_PUBLIC_ATIVAR_PAGINA_PS=true */}
+                    {psAtivo && (
+                        <Link
+                            href="#processo-seletivo"
+                            onClick={() => setMenuAberto(false)}
+                            className="font-principal text-2xl uppercase tracking-[5px] text-secundaria border border-secundaria/40 px-6 py-2 hover:bg-secundaria hover:text-preto hover:border-secundaria transition-all duration-300"
+                            id="mobile-nav-processo-seletivo"
+                        >
+                            PS 2026/2
+                        </Link>
+                    )}
 
                     {/* Ícones Auxiliares reposicionados para a tela mobile */}
                     <div className="flex items-center gap-8 my-2">
