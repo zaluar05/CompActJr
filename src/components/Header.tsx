@@ -20,7 +20,7 @@ export default function Header() {
     const [isDark, setIsDark] = useState(true)
 
     // Lê a variável de ambiente para controlar exibição do link do PS
-    const psAtivo = process.env.NEXT_PUBLIC_ATIVAR_PAGINA_PS === 'true'
+    const psAtivo = process.env.ATIVAR_PAGINA_PS === 'true'
 
     // EFEITOS COLATERAIS (Lógica de Tela)
     useEffect(() => {
@@ -70,12 +70,13 @@ export default function Header() {
                             <Link href="#sobre" className="nav-link ">Quem Somos</Link>
                             {/*<Link href="#blog" className="nav-link ">Blog</Link>*/}
                             <Link href="#portfolio" className="nav-link ">Portfólio</Link>
-                            {/* Link do PS — exibido somente quando NEXT_PUBLIC_ATIVAR_PAGINA_PS=true */}
+                           
                             {psAtivo && (
                                 <Link href="#processo-seletivo" id="nav-processo-seletivo">
                                     <button className="btn-contato">PS 2026/2</button>
                                 </Link>
                             )}
+                            
                         </nav>
 
                         {/* Divisor vertical sutil ('border-l') separando os links dos botões de ação */}
@@ -123,7 +124,6 @@ export default function Header() {
                 </div>
             </header>
 
-            {/* 📱 TELA DE EXPANSÃO (OVERLAY MOBILE) */}
             <div className={`mobile-menu-overlay ${menuAberto ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
 
                 {/* Botão "X" grande no canto superior direito para facilitar fechamento (Melhoria de UX) */}
@@ -144,7 +144,7 @@ export default function Header() {
                     <Link href="#servicos" onClick={() => setMenuAberto(false)} className="nav-link nav-link-mobile">Serviços</Link>
                     <Link href="#sobre" onClick={() => setMenuAberto(false)} className="nav-link nav-link-mobile">Quem Somos</Link>
                     <Link href="#portfolio" onClick={() => setMenuAberto(false)} className="nav-link nav-link-mobile">Portfólio</Link>
-                    {/* Link do PS no mobile — exibido somente quando NEXT_PUBLIC_ATIVAR_PAGINA_PS=true */}
+                 
                     {psAtivo && (
                         <Link
                             href="#processo-seletivo"
@@ -156,29 +156,6 @@ export default function Header() {
                         </Link>
                     )}
 
-                    {/* Ícones Auxiliares reposicionados para a tela mobile */}
-                    <div className="flex items-center gap-8 my-2">
-                        {/* Funcionalidade futura: Botão de Idioma
-                        <button className="icon-btn hover:scale-110 transition-transform" aria-label="Mudar Idioma">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                        </button>
-                        */}
-
-                        {/* Funcionalidade futura: Botão de Tema
-                        <motion.button
-                            onClick={() => setIsDark(!isDark)}
-                            className="icon-btn hover:scale-110 transition-transform"
-                            aria-label="Alternar Tema"
-                            whileTap={{ rotate: 90 }}
-                        >
-                            {isDark ? (
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-                            ) : (
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-                            )}
-                        </motion.button>
-                        */}
-                    </div>
 
                     <Link href="#contato" onClick={() => setMenuAberto(false)}>
                         <button className="btn-contato text-lg px-12 py-4 mt-2">CONTATO</button>

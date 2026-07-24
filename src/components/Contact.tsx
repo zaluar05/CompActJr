@@ -42,7 +42,7 @@ export default function Contact() {
     }
 
     // FUNÇÃO DE SUBMISSÃO (Conectada à Rota API)
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.SubmitEvent) => {
         e.preventDefault()
         setStatus('loading')
 

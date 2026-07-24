@@ -2,10 +2,6 @@
 
 Projeto oficial da nova Landing Page da CompAct Jr., desenvolvido para atuar como o principal canal de conversão e vitrine institucional da Empresa Júnior. A aplicação foi construída com foco em altíssima performance, SEO técnico avançado, integração de back-end nativa e microinterações de interface fluidas.
 
-**Links Oficiais:**
-*   **Ambiente de Produção (Deploy):** [Vercel](https://project-nextjs-one-rose.vercel.app/)
-*   **Repositório Oficial:** [GitHub - CompActJr](https://github.com/CompActJr/CompActJr)
-
 ---
 
 ## 1. Stack Tecnológico
@@ -38,23 +34,6 @@ Foi adotada uma solução estrutural no container `<main>` para sanar o vazament
 *   Substituição de unidades relativas de tela (`w-screen`) por contenção estrita (`w-full max-w-[100vw]`).
 *   Utilização de `overflow-x-clip` em vez de `overflow-hidden`. Esta decisão foi crucial para ocultar o vazamento horizontal sem criar um novo contexto de formatação, preservando o funcionamento da propriedade `position: sticky` utilizada no componente Watermark.
 *   Ocultação das barras de rolagem nativas nos principais navegadores injetada na camada base do Tailwind.
-
----
-
-## 3. Funcionalidades e Componentes Desenvolvidos
-Abaixo, o registro técnico de todas as seções e soluções implementadas:
-
-*   **BackgroundGlow:** Componente de câmera fixa (fixed viewport) que utiliza Framer Motion para gerar orbes luminosos dinâmicos. A fixação previne "buracos negros" durante o scroll da página.
-*   **Watermark (Single Source of Truth):** Componente isolado com `position: sticky` aplicado como fundo em múltiplas seções, garantindo padronização e facilidade de manutenção (DRY - Don't Repeat Yourself).
-*   **Services:** Layout orgânico em zigue-zague com aplicação de rotação 3D (`perspective: 1200px` e `rotateY/X`) via Framer Motion no estado de hover.
-*   **Values:** Layout flexível utilizando `flex-wrap`. A interatividade física 3D (`<TiltCard/>`) separa matematicamente as lógicas de *Pointer Move* (acompanhamento contínuo no Desktop) e *Pointer Down/Up* (inclinação exata ao toque no Mobile), revelando o conteúdo sem conflitos de scroll.
-*   **Portfolio:** Layout assimétrico em Mosaico (Bento Grid) focado na exibição de cases reais. Utiliza `grid-area` para destacar elementos específicos e revela informações do projeto através de efeitos de opacidade no hover.
-*   **Apoiadores e Clientes:** Carrosséis horizontais de loop infinito (Social Proof). Construídos com o componente nativo `<Image/>` do Next.js, garantindo conversão automática para formatos modernos (WebP/AVIF), *lazy loading* nativo e entrega via CDN da Vercel. Incluem links externos ancorados de forma segura (`noopener noreferrer`).
-*   **History:** Carrossel interativo baseado em cálculo de índices (Index-based Carousel). A posição (eixo X), escala e desfoque lateral (blur) de cada cartão são calculados matematicamente pela distância (offset) em relação ao índice ativo. A régua cronológica utiliza o `layoutId` do Framer Motion para transições fluidas do indicador.
-*   **Team:** Aplicação direta de Regras de Negócio (RN). O mapeamento de dados condiciona as bordas e cores institucionais (Azul para Diretores, Branco para Membros). Inclui barra de redes sociais animada com recorte geométrico (`clip-path`).
-*   **Contact (Full-stack):** Arquitetura com formulário em glassmorphism e mapa dedicado. Implementa uma *Route Handler* própria (`/api/contact`) que recebe a carga via método `POST`, realiza validação de integridade dos campos obrigatórios e utiliza a API do Resend para o disparo do lead. O componente client-side gerencia os estados interativos de carregamento e sucesso utilizando `<AnimatePresence>`.
-*   **Footer:** Mapa do site semântico com links âncora para todas as seções. Ocultação inteligente de blocos não essenciais e centralização automática em dispositivos móveis.
-*   **FloatingButton (FAB):** Botão de ação direta (WhatsApp) com animação contínua de pulso. Um listener de janela controla a sua renderização, garantindo que só fique visível após 400px de rolagem.
 
 ---
 
@@ -94,10 +73,3 @@ npm run dev
 Acesse `http://localhost:3000` no seu navegador.
 
 ---
-
-## 6. Próximos Passos (Backlog)
-Tarefas recomendadas para futuras iterações da aplicação:
-
-*   **Substituição de Ativos Visuais:** O ecossistema de otimização de imagens estáticas já está estruturalmente configurado. O próximo passo prático é substituir as imagens de placeholder pelas fotografias oficiais e redigir o copywriting final (textos definitivos).
-*   **Gerenciamento de Conteúdo (CMS):** Avaliar a futura implementação de um *Headless CMS* (como Strapi ou Sanity) para permitir atualizações de portfólio, timeline histórica e membros da equipe pela diretoria comercial/marketing, sem necessidade de alterações no código-fonte.
-*   **Dark/Light Mode Dinâmico:** A aplicação possui identidade nativa estrita no *Cinematic Dark Mode*. Uma versão futura pode mapear o chaveamento das variáveis CSS root para suportar um modo claro, alterando o estado globalmente.

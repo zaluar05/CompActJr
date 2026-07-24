@@ -53,8 +53,7 @@ export const metadata: Metadata = {
 }
 
 export default function Home() {
-    // Lê a variável de ambiente no Server Component para renderizar o PS condicionalmente
-    const psAtivo = process.env.NEXT_PUBLIC_ATIVAR_PAGINA_PS === 'true'
+    const psAtivo = process.env.ATIVAR_PAGINA_PS === 'true'
 
     return (
         <main className="relative bg-preto min-h-screen w-full max-w-[100vw] overflow-x-clip flex flex-col">
@@ -76,8 +75,9 @@ export default function Home() {
                 <Portfolio />
                 <History />
                 <Team />
-                {/* Seção PS — renderizada somente quando NEXT_PUBLIC_ATIVAR_PAGINA_PS=true */}
+        
                 {psAtivo && <ProcessoSeletivo />}
+
                 <Contact />
                 <Footer />
             </div>
