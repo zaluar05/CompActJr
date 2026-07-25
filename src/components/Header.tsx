@@ -20,7 +20,7 @@ export default function Header() {
     const [isDark, setIsDark] = useState(true)
 
     // Lê a variável de ambiente para controlar exibição do link do PS
-    const psAtivo = process.env.ATIVAR_PAGINA_PS === 'true'
+    const psAtivo = process.env.NEXT_PUBLIC_ATIVAR_PAGINA_PS === 'true'
 
     // EFEITOS COLATERAIS (Lógica de Tela)
     useEffect(() => {
@@ -72,7 +72,7 @@ export default function Header() {
                             <Link href="#portfolio" className="nav-link ">Portfólio</Link>
                            
                             {psAtivo && (
-                                <Link href="#processo-seletivo" id="nav-processo-seletivo">
+                                <Link href="/processoSeletivo" id="nav-processo-seletivo">
                                     <button className="btn-contato">PS 2026/2</button>
                                 </Link>
                             )}
@@ -147,7 +147,7 @@ export default function Header() {
                  
                     {psAtivo && (
                         <Link
-                            href="#processo-seletivo"
+                            href="/processoSeletivo"
                             onClick={() => setMenuAberto(false)}
                             className="font-principal text-2xl uppercase tracking-[5px] text-secundaria border border-secundaria/40 px-6 py-2 hover:bg-secundaria hover:text-preto hover:border-secundaria transition-all duration-300"
                             id="mobile-nav-processo-seletivo"
